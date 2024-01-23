@@ -1,5 +1,9 @@
+import fs from 'fs';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
 const create = async () => {
-    const fs = require('fs');
+    const __dirname = dirname(fileURLToPath(import.meta.url));
     const path = __dirname + '/files/fresh.txt';
     const content = 'I am fresh and young';
     
@@ -9,7 +13,6 @@ const create = async () => {
         } else {
             fs.writeFile(path, content, (err) => {
                 if (err) throw err;
-                console.log('File has been created');
             });
         }
     });
